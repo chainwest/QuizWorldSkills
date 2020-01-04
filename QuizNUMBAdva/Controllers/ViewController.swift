@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var thirdButton: UIButton!
+    @IBOutlet weak var progressBar: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,7 @@ class ViewController: UIViewController {
             firstButton.setTitle(allQuestions.list[currentQuestion].answers[0], for: .normal)
             secondButton.setTitle(allQuestions.list[currentQuestion].answers[1], for: .normal)
             thirdButton.setTitle(allQuestions.list[currentQuestion].answers[2], for: .normal)
+            progressBar.frame.size.width = (view.frame.size.width / 3) * CGFloat(currentQuestion + 1)
         } else {
             performSegue(withIdentifier: "goToScore", sender: self)
         }
