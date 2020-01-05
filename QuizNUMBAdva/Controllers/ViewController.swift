@@ -40,15 +40,20 @@ class ViewController: UIViewController {
     //MARK: - Go to next question
     func nextQuestion() {
         if currentQuestion <= allQuestions.list.count - 1 {
-            scoreLabel.text = String(totalScore)
-            titleLabel.text = allQuestions.list[currentQuestion].title
-            firstButton.setTitle(allQuestions.list[currentQuestion].answers[0], for: .normal)
-            secondButton.setTitle(allQuestions.list[currentQuestion].answers[1], for: .normal)
-            thirdButton.setTitle(allQuestions.list[currentQuestion].answers[2], for: .normal)
-            progressBar.frame.size.width = (view.frame.size.width / 3) * CGFloat(currentQuestion + 1)
+            updateUI()
         } else {
             performSegue(withIdentifier: "goToScore", sender: self)
         }
+    }
+    
+    //MARK: - Update UI
+    func updateUI() {
+        scoreLabel.text = String(totalScore)
+        titleLabel.text = allQuestions.list[currentQuestion].title
+        firstButton.setTitle(allQuestions.list[currentQuestion].answers[0], for: .normal)
+        secondButton.setTitle(allQuestions.list[currentQuestion].answers[1], for: .normal)
+        thirdButton.setTitle(allQuestions.list[currentQuestion].answers[2], for: .normal)
+        progressBar.frame.size.width = (view.frame.size.width / 3) * CGFloat(currentQuestion + 1)
     }
     
     //MARK: - Check answer
