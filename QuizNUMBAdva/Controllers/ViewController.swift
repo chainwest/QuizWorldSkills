@@ -24,7 +24,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
         
         nextQuestion()
     }
@@ -63,6 +62,9 @@ class ViewController: UIViewController {
         }
     }
     
+}
+
+extension ViewController {
     //MARK: - Segue method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToScore" {
@@ -73,5 +75,6 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToQuestions(_ sender: UIStoryboardSegue) {}
 }
 

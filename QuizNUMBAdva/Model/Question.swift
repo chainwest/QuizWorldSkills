@@ -8,14 +8,8 @@
 
 import Foundation
 
-class Question {
+struct Question {
     let title: String
     let answers: [String]
     let rightAnswer: Int
-    
-    init(title: String, answers: [String], rightAnswer: Int) {
-        self.title = title
-        self.answers = answers
-        self.rightAnswer = rightAnswer
-    }
 }

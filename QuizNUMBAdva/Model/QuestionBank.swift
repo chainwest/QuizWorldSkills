@@ -8,7 +8,7 @@
 
 import Foundation
 
-class QuestionBank {
+struct QuestionBank {
     var list = [Question]()
     
     init() {

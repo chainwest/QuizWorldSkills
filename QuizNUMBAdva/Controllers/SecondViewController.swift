@@ -23,22 +23,17 @@ class SecondViewController: UIViewController {
         
         scoreLabel.text = score
     }
-    
-    //MARK: - Play again button
-    @IBAction func playAgainButton(_ sender: Any) {
-        performSegue(withIdentifier: "goToQuiz", sender: self)
-    }
-    
+
+}
+
+extension SecondViewController {
     //MARK: - Prepare for segue method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToQuiz" {
-            
-            let firstVC = segue.destination as! ViewController
-            
-            firstVC.currentQuestion = startQuestion
-            firstVC.totalScore = startScore
-        }
+        let destVC = segue.destination as! ViewController
+        
+        destVC.progressBar.frame.size.width = 0
+        destVC.currentQuestion = 0
+        destVC.totalScore = 0
+        destVC.updateUI()
     }
-    
-
 }
